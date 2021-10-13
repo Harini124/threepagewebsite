@@ -84,6 +84,11 @@
                                                 Contact Us   
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="dashboard.php" class="nav-link custom-font-color">
+                                                login  
+                                            </a>
+                                        </li>
                                         
                                     </ul>
                                 <!-- </div> -->
@@ -131,4 +136,74 @@
                         </div>
                     </div>
                 </section>
+                <?php include "includes\\footer.php"; ?>
+       <script>
+           //$("#user_email").on('keyup',function(){
+              //  if($("#user_email").val()==''){
+                //    $("#email-err").text('Email is Required');
+               // }
+               // else{
+                //    $("#email-err").text('');
+                //}
+           // });
+
+
+            
+           // $("#user_password").on('keyup',function(){
+              //  if($("#user_password").val()==''){
+               //     $("#password-err").text('password is Required');
+               // }
+               // else{
+               //     $("password-err").text('');
+               // }
+           // });
+       
+
+
+           function printError(elemId, hintMsg){
+    document.getElementById(elemId).innerHTML = hintMsg;
+           }
+
+           function validateForm() {
+                event.preventDefault();
+
+                var email = document.getElementById('user_email').value;
+
+                var password=document.getElementById('user_password').value;
+
+                var emailErr = passwordErr= true;
+
+
+                //Validate email address
+                if(email == "") {
+                    printError("email-err", "Please enter your email");
+                } else {
+                    var regex = /^\S+@\S+\.\S+$/;
+                    if(regex.test(email) == false) {
+                        printError("email-err", "Please enter a valid email");
+                    } else {
+                        printError("email-err", "");
+                        user_emailErr = false;
+                    }
+                }
+
+                //validate password
+                if(password==""){
+                    printError("password-err", "Please enter your password");
+                }else {
+                    printError("password-err", "");
+                    user_passwordErr = false;
+                }
+                
+
+    //return false;
+
+    //cosole.log(email+password);
+}
+            </script>
+
+
+
+    </body>
+</html>
     
